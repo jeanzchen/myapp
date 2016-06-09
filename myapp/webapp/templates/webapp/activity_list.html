@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}Usesr List {% endblock %}
+
+{% block body_block %}
+<script>
+	table
+		border: solid; 1px;
+</script>
+
+<table id="activity"  class="table2">
+	  <thead >
+	  	<td>Category</td>
+		<td>First Name</td>
+		<td>Last Name</td>
+		<td>Activiity</td>
+	  </thead>
+	  {% for user in object_list %}
+	  <tr>
+	  	<td>{{ user.category }}</td>
+		<td><a href="/user/{{ user.UserId}}/">{{ user.fname }}</a></td>
+		<td><a href="/user/{{ user.UserId}}/">{{ user.lname }}</a></td>
+		<td><a href="/user/{{ user.UserId}}/">{{ user.activity }}</a></td>
+	
+	  </tr>
+	  {% endfor %}
+	</table>
+	<a href="/activity/add/">ADD NEW</a>
+
+{% endblock %}

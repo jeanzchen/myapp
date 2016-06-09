@@ -19,11 +19,21 @@ class User(models.Model):
     def __unicode__(self):      #For Python 2, use __str__ on Python 3
         return self.fname + self.lname
     
+class Activity(models.Model):
+    UserId = models.AutoField(primary_key=True)
+    category = models.ForeignKey(UserCategory)
+    fname = models.CharField(max_length=128)
+    lname = models.CharField(max_length=128)
+    acttype = models.CharField(max_length=128)
+
+    def __unicode__(self):      #For Python 2, use __str__ on Python 3
+        return self.fname + self.lname + self.acttype    
+    
 class VisitorLog(models.Model):
     LogId = models.AutoField(primary_key=True)
     UserToVisit = models.ForeignKey(User)
     category = models.ForeignKey(UserCategory)
     fname = models.CharField(max_length=128)
     lname = models.CharField(max_length=128)
-    
+    acttype = models.CharField(max_length=128) 
     

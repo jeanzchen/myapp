@@ -47,3 +47,17 @@ class UserUpdateView(UpdateView):
     fields =['UserId', 'category', 'fname', 'lname']
     print 'User update'
     success_url = '/user/'
+    
+class ActivityCreateView(CreateView):
+    model = User
+    template_name = "webapp/activity_detail.html"
+    fields =['UserId', 'category', 'fname', 'lname', 'acttype']
+    success_url = '/activity/'
+    print 'Activity create'
+
+class ActivityUpdateView(UpdateView):
+    model = User
+    template_name = "webapp/activity_detail.html"
+    fields =['UserId', 'category', 'fname', 'lname', 'acttype']
+    print 'Activity update'
+    success_url = '/activity/'  

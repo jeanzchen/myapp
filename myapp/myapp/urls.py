@@ -2,13 +2,15 @@ from django.conf.urls import include, url
 from django.contrib import admin
 
 from webapp import views
-from webapp.models import  UserCategory, User
+from webapp.models import  UserCategory, User, Activity 
 
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 UserCategory_detail  = DetailView.as_view(model=UserCategory)
 UserCategory_list  = ListView.as_view(model=UserCategory)
 
 User_list  = ListView.as_view(model=User)
+
+Activity_list  = ListView.as_view(model=Activity)
 
 urlpatterns = [
     # Examples:
@@ -26,5 +28,9 @@ urlpatterns = [
 
     url(r'^user/$', User_list, name="User_list" ),
     url(r'^user/add/$', views.UserCreateView.as_view(), name="userCreateView" ),
-    url(r'^user/(?P<pk>\d+)/$', views.UserUpdateView.as_view(), name="userUpdateView" )
+    url(r'^user/(?P<pk>\d+)/$', views.UserUpdateView.as_view(), name="userUpdateView" ),
+    
+    url(r'^activity/$', Activity_list, name="Activity_list" ),
+    url(r'^activity/add/$', views.ActivityCreateView.as_view(), name="activityCreateView" ),
+    url(r'^activity/(?P<pk>\d+)/$', views.ActivityUpdateView.as_view(), name="activitypdateView" ) 
     ]

@@ -29,6 +29,14 @@ class Activity(models.Model):
     def __unicode__(self):      #For Python 2, use __str__ on Python 3
         return self.fname + self.lname + self.acttype    
     
+Class About(models.Model):
+    UserId = models.AutoField(primary_key=True)
+    category = models.ForeignKey(UserCategory)
+ 
+Class Contact(models.Model):
+    UserId = models.AutoField(primary_key=True)
+    category = models.ForeignKey(UserCategory)   
+           
 class VisitorLog(models.Model):
     LogId = models.AutoField(primary_key=True)
     UserToVisit = models.ForeignKey(User)

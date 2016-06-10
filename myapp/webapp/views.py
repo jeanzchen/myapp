@@ -2,7 +2,7 @@ from django.shortcuts import render, render_to_response
 from django.views.generic import ListView
 from django.views.generic.edit import CreateView, UpdateView
 
-from models import User, UserCategory 
+from models import User, UserCategory, Activity, About, Contact 
 # Create your views here.
 
 def index(request):
@@ -61,3 +61,19 @@ class ActivityUpdateView(UpdateView):
     fields =['UserId', 'category', 'fname', 'lname', 'acttype']
     print 'Activity update'
     success_url = '/activity/'  
+    
+class AboutCreateView(CreateView):
+    model = About
+    template_name = "webapp/about-us.html"
+    fields =['UserId', 'category', 'fname', 'lname', 'acttype']
+    success_url = '/about/'
+    print 'About-us provide'  
+    
+class ContactCreateView(CreateView):
+    model = Create
+    template_name = "webapp/contact-us.html"
+    fields =['UserId', 'category', 'fname', 'lname', 'acttype']
+    success_url = '/contact/'
+    print 'Contact-us provide'  
+      
+      
